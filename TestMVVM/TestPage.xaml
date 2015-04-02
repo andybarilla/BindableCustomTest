@@ -8,7 +8,9 @@
 		<mv:TestViewModel />
 	</ContentPage.BindingContext>
 	<StackLayout>
-		<Entry Text="{Binding TestValue}" />
-		<mv:CustomEntry Text="{Binding TestValue}" />
+		<Label Text="Standard Entry Field" />
+		<Entry Text="{Binding TestValue, Mode=TwoWay}" />
+		<Label Text="Custom Entry Field" />
+		<mv:CustomEntry Text="{Binding TestValue, Mode=TwoWay}" />
 	</StackLayout>
 </ContentPage>

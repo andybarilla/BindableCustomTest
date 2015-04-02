@@ -1,21 +1,21 @@
 ﻿using System;
 using System.ComponentModel;
+using Xamarin.Forms;
 
 namespace TestMVVM
 {
 	public class TestViewModel : INotifyPropertyChanged
 	{
-		double testValue;
+		string testValue;
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		public TestViewModel ()
 		{
-			var random = new Random ();
-			testValue = random.NextDouble ();
+			TestValue = "abcdef";
 		}
 
-		public double TestValue 
+		public string TestValue 
 		{
 			set {
 				if (testValue != value) {
