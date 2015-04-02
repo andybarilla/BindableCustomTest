@@ -7,11 +7,11 @@ namespace TestMVVM
 	{
 		protected Entry entry;
 
-		public CustomEntry ()
+		public CustomEntry()
 		{
-			entry = new Entry ();
+			entry = new Entry();
 			entry.PropertyChanged += EntryPropertyChanged;
-			Children.Add (entry);
+			Children.Add(entry);
 		}
 
 		public static readonly BindableProperty TextProperty =
@@ -20,24 +20,24 @@ namespace TestMVVM
 				"",
 				BindingMode.TwoWay,
 				null,
-				new BindableProperty.BindingPropertyChangedDelegate<string> (HandleTextChanged));
-		
-		public string Text {
+				new BindableProperty.BindingPropertyChangedDelegate<string>(HandleTextChanged));
+
+		public string Text
+		{
 			get { return (string)GetValue(TextProperty); }
-			set { 
-				SetValue (TextProperty, value);
-				entry.Text = value;
-			}
+			set { SetValue(TextProperty, value); }
 		}
 
-		static void HandleTextChanged (BindableObject bindable, object oldValue, object newValue) {
-			((CustomEntry)bindable).Text = newValue.ToString();
+		static void HandleTextChanged(BindableObject bindable, object oldValue, object newValue)
+		{
+			((CustomEntry)bindable).entry.Text = newValue.ToString();
 		}
 
-		void EntryPropertyChanged (object sender, System.ComponentModel.PropertyChangedEventArgs e) {
-			if (e.PropertyName == "Text") {
+		void EntryPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+		{
+			if (e.PropertyName == Entry.TextProperty.PropertyName)
+			{
 				Text = ((Entry)sender).Text;
-				OnPropertyChanged ("Text");
 			}
 		}
 	}
