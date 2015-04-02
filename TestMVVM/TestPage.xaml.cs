@@ -7,9 +7,9 @@ namespace TestMVVM
 {
 	public partial class TestPage : ContentPage
 	{
-		public TestPage ()
+		public TestPage()
 		{
-			InitializeComponent ();
+			InitializeComponent();
 		}
 	}
 }

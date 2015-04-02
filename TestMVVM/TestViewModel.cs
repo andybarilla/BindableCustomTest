@@ -10,7 +10,7 @@ namespace TestMVVM
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		public TestViewModel ()
+		public TestViewModel()
 		{
 			TestValue = "abcdef";
 		}
@@ -18,9 +18,10 @@ namespace TestMVVM
 		public string TestValue 
 		{
 			set {
-				if (testValue != value) {
+				if (testValue != value)
+				{
 					testValue = value;
-					OnPropertyChanged ("TestValue");
+					OnPropertyChanged("TestValue");
 				}
 			}
 			get {
@@ -28,9 +29,11 @@ namespace TestMVVM
 			}
 		}
 
-		protected virtual void OnPropertyChanged (string propertyName) {
-			if (PropertyChanged != null) {
-				PropertyChanged (this, new PropertyChangedEventArgs(propertyName));
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			if (PropertyChanged != null)
+			{
+				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
